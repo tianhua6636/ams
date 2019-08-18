@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" th:href="@{/static/images/favicon.png}" type="image/png">
+	<title>error-400</title>
+	<link th:href="@{/static/css/icons.css}" rel="stylesheet">
+	<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/static/css/style.css}" rel="stylesheet">
+	<link th:href="@{/static/css/responsive.css}" rel="stylesheet">
+
+	<!-- 用于IE9支持HTML5元素和媒体查询的HTML5 shim和Respond.js -->
+	<!-- 如果您通过file：//查看页面，则Respond.js不起作用 -->
+	<!--[if lt IE 9]>
+	<script th:src="@{/static/js/html5shiv.min.js}"></script>
+	<script th:src="@{/static/js/respond.min.js}"></script>
+	<![endif]-->
+
+</head>
+
+<body class="error-bg">
+
+<!--Start Section-->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="error-inner">
+				<h1>400</h1>
+				<h3>Page not found</h3>
+				<p>Lorem Ipsum is simply dummy text of the</p>
+				<a th:href="@{/view/index}" class="btn btn-primary">Back to home</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!--End Section-->
+
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>

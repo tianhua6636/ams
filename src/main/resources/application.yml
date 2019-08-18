@@ -1,0 +1,97 @@
+server:
+  port: 8010
+  servlet:
+    context-path: "/ams"
+    session:
+      timeout: 30m
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 800
+    min-spare-threads: 30
+spring:
+  application:
+    name: ams
+  servlet:
+    multipart:
+      enabled: true
+      location: classpath:/upload/**
+      max-file-size: -1
+      file-size-threshold: 0
+      max-request-size: 20
+  http:
+    log-request-details: true
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      log-condition-evaluation-delta: true
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    joda-date-time-format: "yyyy-MM-dd HH:mm:ss"
+  mvc:
+    static-path-pattern: "/**"
+    view:
+      prefix: "classpath:/templates/"
+      suffix: ".html"
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    favicon:
+      enabled: true
+  thymeleaf:
+    encoding: utf-8
+    prefix: 'classpath:/templates/'
+    suffix: '.html'
+    cache: true
+    mode: 'HTML'
+    servlet:
+      content-type: text/html
+    enabled: true
+    template-resolver-order: 1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://cdb-nyv2xdcw.cd.tencentcdb.com:10052/ams_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: wangth
+    password: 20152180201
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 30
+      auto-commit: true
+      idle-timeout: 60000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 60000
+      connection-test-query: SELECT 1
+  redis:
+    database: 1
+    host: 139.155.0.155
+    port: 6379
+    password:
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 3000ms
+        max-idle: 5
+        min-idle: 0
+  rabbitmq:
+    host: 139.155.0.155
+    port: 5672
+    username: wangth
+    password: 20152180201
+    virtual-host: /
+debug: true
+logging:
+  level:
+    com.th.ams.dao: debug
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.th.ams.model
+  type-handlers-package: org.apache.ibatis.type.EnumOrdinalTypeHandler
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
