@@ -3,16 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>city</title>
+	<link th:href="@{/static/plugins/layui/css/layui.css}">
+	<style>
+
+	</style>
 </head>
 <body>
-123
+	<div class="layui-container">
+		<form>
+			<textarea class="txt-area" name="txt-area"></textarea>
+			<button class="layui-btn layui-btn-primary" id="ams-btn">获取授权码</button>
+		</form>
+	</div>
 </body>
 <script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/plugins/layui/layui.all.js}"></script>
 <script>
 	$(document).ready(function(){
-		$.getJSON("/ams/cityList",{"pageNumber":1,"pageSize":1000},function(result,status){
-			var data = result.data;
-			var status = result.status;
+		let data = {"pageNumber":1,"pageSize":100};
+		$.getJSON("/ams/cityList",data,function(result,state){
+			let data = result.data;
+			let status = result.status;
 			if (status === 200){
 				console.log(data);
 			} else{
