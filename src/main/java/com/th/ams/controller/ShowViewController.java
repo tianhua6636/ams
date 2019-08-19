@@ -24,4 +24,9 @@ public class ShowViewController {
 		model.addAttribute("name","TOM");
 		return "page/dashboard2";
 	}
+
+	@GetMapping({"/city"})
+	public String cityView(){
+		return "city";
+	}
 }

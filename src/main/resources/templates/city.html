@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>city</title>
+</head>
+<body>
+123
+</body>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script>
+	$(document).ready(function(){
+		$.getJSON("/ams/cityList",{"pageNumber":1,"pageSize":1000},function(result,status){
+			var data = result.data;
+			var status = result.status;
+			if (status === 200){
+				console.log(data);
+			} else{
+				console.log("error");
+			}
+		});
+	});
+</script>
+</html>

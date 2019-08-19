@@ -19,6 +19,6 @@
     <select id="getCityList" resultType="com.th.ams.model.CityModel">
         select
         <include refid="base_sql"/>
-        from city
+        from city where 1=1
     </select>
 </mapper>
